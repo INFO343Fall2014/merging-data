@@ -1,3 +1,6 @@
+/*List of Employees and the employees information. Like firstName,lastName,title,department,
+contact number,email, and images */
+
 var pawneeEmployees = [
     {
         firstName: 'Leslie',
