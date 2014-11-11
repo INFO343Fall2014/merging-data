@@ -1,7 +1,6 @@
 "use strict";
 
 // This creates a new Angular modeule named AddressBook with no dependencies.
- 
 angular.module('AddressBook', [])
 	.controller('AddressController', function($scope) {
   		$scope.employees = pawneeEmployees;
