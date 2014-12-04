@@ -10,7 +10,7 @@ angular.module('AddressBook', [])
 
   	$scope.sortBy = function(sortCol) {
   		if ($scope.sortCol == sortCol) {
-  			$scope.sortCol = !$scope.sortReverse;
+  			$scope.sortReverse = !$scope.sortReverse;
   		}
   		else {
   			$scope.sortCol = sortCol;

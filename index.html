@@ -27,27 +27,27 @@
                     <span>Sort By: </span>
                     <div class="btn-group">
                         <button type="button" class="btn btn-default" ng-click="sortBy('lastName')" ng-class= "{sorted: isSortedBy('lastName')}">Last Name</button>
-                        <button type="button" class="btn btn-default" ng-click="sortBy('firstName')" ng-class="{sorted: isSortBy('firstName')}">First Name</button>
-                        <button type="button" class="btn btn-default" ng-click="sortBy('department')" ng-class"{sorted: isSortedBy('department')">Department</button>
+                        <button type="button" class="btn btn-default" ng-click="sortBy('firstName')" ng-class="{sorted: isSortedBy('firstName')}">First Name</button>
+                        <button type="button" class="btn btn-default" ng-click="sortBy('department')" ng-class="{sorted: isSortedBy('department')}">Department</button>
                     </div>
                 </div>
                 <!-- filter input; you will add attributes to make this filter the list based on value entered -->
                 <div class="filter-ui">
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <input type="text" class="form-control" placeholder="Search..." ng-model="searchString">
                 </div>
             </section>
 
             <section>
                 <ul class="cards">
-                    <li class="card" ng-repeat="employee in employeesFilter = (employees | filter: searching:strict | orderBy: sortCol : sortReverse)">
+                    <li class="card" ng-repeat="employee in filteredEmployees = (employees | filter: searchString:strict | orderBy: sortCol : sortReverse)">
                         <!-- this img should show the employee picture --> 
                         <img ng-src='{{employee.picUrl}}' alt="picture of {{employee.firstName}}"/>
                         <div class="details">
-                            <h2 class="name">{{employee.lastName}} , {{employee.firstName}}</h2>
-                            <p class="title">{{empolyee.title}}</p>
+                            <h2 class="name">{{employee.lastName}}, {{employee.firstName}}</h2>
+                            <p class="title">{{employee.title}}</p>
                             <p class="department">{{employee.department}}</p>
                             <p class="phone" ng-if="employee.phone"><a ng-href="tel:{{employee.phone}}">{{employee.phone}}</a></p>
-                            <p class="email" ng-if="employee.email"><a ng-href="mailto{{employee.email}}">{{employee.email}}</a></p>
+                            <p class="email" ng-if="employee.email"><a ng-href="mailto:{{employee.email}}">{{employee.email}}</a></p>
                             <!--Tells Angular to put Employee's information into each elements. -->
                         </div>
                     </li>
